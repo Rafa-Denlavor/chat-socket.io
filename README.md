@@ -1,6 +1,6 @@
-# TempChat
+# Ephemeral
 
-TempChat é um projeto de chat de curta duração para conversas públicas ou privadas. Ele permite aos usuários trocarem mensagens de forma temporária, com um limite de tempo para a visualização das mensagens.
+Ephemeral é um projeto de chat de curta duração para conversas públicas ou privadas. Ele permite aos usuários trocarem mensagens de forma temporária, com um limite de tempo para a visualização das mensagens.
 
 ## Funcionalidades
 
@@ -9,7 +9,7 @@ TempChat é um projeto de chat de curta duração para conversas públicas ou pr
 
 ## Como Usar
 
-1. **Registro/Login:** Os usuários precisam se registrar ou fazer login para acessar o TempChat.
+1. **Registro/Login:** Os usuários precisam se registrar ou fazer login para acessar o Ephemeral.
 2. **Criar uma Conversa:** Os usuários podem criar uma nova conversa e convidar outros usuários para participar, ou iniciar uma conversa pública.
 3. **Troca de Mensagens:** Uma vez dentro de uma conversa, os usuários podem trocar mensagens entre si.
 4. **Tempo de Vida das Mensagens:** Todas as mensagens têm um tempo de vida definido pelo criador da conversa. Após esse tempo, as mensagens são removidas automaticamente.
@@ -19,12 +19,12 @@ TempChat é um projeto de chat de curta duração para conversas públicas ou pr
 
 1. **Clone o Repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/tempchat.git
+   git clone https://github.com/seu-usuario/ephemeral.git
    ```
 
 2. **Instale as Dependências:**
    ```bash
-   cd tempchat/backend
+   cd ephemeral/backend
    npm install
    ```
 
@@ -39,7 +39,7 @@ TempChat é um projeto de chat de curta duração para conversas públicas ou pr
     Para que o servidor se adapte há alterações realizadas.
 
 5. **Acesse no Navegador:**
-   - Acesse `http://localhost:5500` para começar a usar o TempChat.
+   - Acesse `http://localhost:5500` para começar a usar o ephemeral.
 
 ## Contribuição
 
@@ -51,4 +51,4 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ---
 
-Esperamos que você desfrute usando o TempChat. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
+Esperamos que você desfrute usando o ephemeral. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
