@@ -3,12 +3,10 @@ const { WebSocketServer } = require("ws");
 
 dotenv.config();
 
-const wss = new WebSocketServer({ port: process.env.PORT });
+const wss = new WebSocketServer({ port: process.env.PORT || 8080 });
 
 // Connection
-wss.on("connection", () => {
-  console.log("[WebSocket] { Connection established }");
-  
+wss.on("connection", () => {  
   wss.on("error", (error) => {
     console.log("[ERRO]: ", error);
   });
@@ -21,4 +19,6 @@ wss.on("connection", () => {
       client.send(data);
     });
   });
+
+  console.log("[WebSocket] { Connection established }");
 });
