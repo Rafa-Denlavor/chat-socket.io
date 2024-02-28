@@ -42,15 +42,14 @@ loginForm.addEventListener("submit", (event) => {
   login.style.display = "none";
   chat.style.display = "flex";
 
-  websocket = new WebSocket("ws:localhost:8080");
-  websocket.onmessage = processMessage;
+  websocket = new WebSocket("ws:localhost:7070");
+  websocket.onmessage = processMessageClient;
 });
 
 chatForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  sendMessage();
+  sendMessageSocket();
   chatInput.value = "";
-  chatMessages.scrollTop = 0;
 });
 
 // --------------- FUNCTIONS --------------- //
@@ -60,15 +59,23 @@ function getRandomColor() {
   return randomColors[randomIndex];
 }
 
-function processMessage({ data }) {
-  const { userId, userName, userColor, content } = JSON.parse(data);
-
-  const messageType = userId === user.id ? createMessageElementSelf(content) : createMessageElementOther(userName, userColor, content)
-
-  return chatMessages.appendChild(messageType);
+function scrollScreenBottom() {
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 }
 
-function sendMessage() {
+function processMessageClient({ data }) {
+  const { userId, userName, userColor, content } = JSON.parse(data);
+
+  const messageType =
+    userId === user.id
+      ? createMessageElementSelf(content)
+      : createMessageElementOther(userName, userColor, content);
+
+  chatMessages.appendChild(messageType);
+  scrollScreenBottom();
+}
+
+function sendMessageSocket() {
   const message = {
     userId: user.id,
     userName: user.name,
@@ -77,6 +84,7 @@ function sendMessage() {
   };
 
   websocket.send(JSON.stringify(message));
+  // websocket.close();
 }
 
 function createMessageElementSelf(content) {
