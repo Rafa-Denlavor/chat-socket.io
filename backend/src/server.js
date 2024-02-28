@@ -6,19 +6,17 @@ dotenv.config();
 const wss = new WebSocketServer({ port: process.env.PORT || 8080 });
 
 // Connection
-wss.on("connection", () => {  
-  wss.on("error", (error) => {
-    console.log("[ERRO]: ", error);
-  });
+wss.on("connection", (ws) => {
+  console.log("[WebSocket] { Connection established }");
+
+  ws.on("error", () => "[WebSocket] Error");
 
   // Receive the message
-  wss.on("message", (data) => {
+  ws.on("message", (data) => {
     // Goes through each client
-    wss.clients.forEach((client) => {
+    return wss.clients.forEach((client) => {
       // Send for client
-      client.send(data);
+      return client.send(data.toString());
     });
   });
-
-  console.log("[WebSocket] { Connection established }");
 });
