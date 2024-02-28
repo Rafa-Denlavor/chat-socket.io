@@ -51,4 +51,4 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ---
 
-Esperamos que você desfrute usando o TempChat. Se ti
+Esperamos que você desfrute usando o TempChat. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
