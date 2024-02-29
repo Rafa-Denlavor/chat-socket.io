@@ -1,6 +1,7 @@
 // --------------- ELEMENTS --------------- //
 
-const banner = document.querySelector('.coockie-banner');
+const banner = document.querySelector(".coockie-banner");
+const container = document.querySelector(".container");
 
 const login = document.querySelector(".login");
 const loginForm = document.querySelector(".login-form");
@@ -9,6 +10,7 @@ const loginInput = document.getElementById("name");
 const chat = document.querySelector(".chat");
 const chatForm = document.querySelector(".chat-form");
 const chatInput = document.querySelector(".chat-input");
+
 const chatMessages = document.querySelector(".chat-messages");
 
 // --------------- CONSTANTS --------------- //
@@ -44,33 +46,20 @@ loginForm.addEventListener("submit", (event) => {
   login.style.display = "none";
 
   setTimeout(() => {
-    const image = document.createElement('img');
-    image.src = '../images/loading.gif';
-    image.styles.margin = 'auto';
-    image.style.padding = '10px';
-    image.backgroundColor = 'red'
-    // Adicione a imagem de carregamento ao DOM
-    document.body.appendChild(image);
+    const image = document.createElement("img");
+    image.src = "./images/loading.gif";
+    image.style.width = "400px";
+    container.appendChild(image);
 
-    // Agora, depois de 5.5 segundos, execute o seguinte código
     setTimeout(() => {
-      // Remova a imagem de carregamento depois de 5.5 segundos
-      document.body.removeChild(image);
-      
-      // Exiba o chat e o banner após a remoção da imagem de carregamento
+      container.removeChild(image);
+
       chat.style.display = "flex";
       banner.style.display = "flex";
-    }, 2500);
+    }, 2000);
   }, 0);
 
-  // Open connection?
-  if (!websocket || websocket.readyState === WebSocket.CLOSED) {
-    websocket = new WebSocket("ws://localhost:7070");
-    console.log("[WebSocket] Connection started", websocket)
-    websocket.onmessage = processMessageClient;
-  } else {
-    console.log("[WebSocket] Connection is already open.");
-  }
+  connectWebSocket();
 });
 
 chatForm.addEventListener("submit", (event) => {
@@ -91,6 +80,7 @@ function scrollScreenBottom() {
 }
 
 function processMessageClient({ data }) {
+  console.log("[WebSocket] Mensagem recebida do servidor.");
   const { userId, userName, userColor, content } = JSON.parse(data);
 
   const messageType =
@@ -111,38 +101,73 @@ function sendMessageSocket() {
   };
 
   websocket.send(JSON.stringify(message));
-  // websocket.close();
 }
 
 function createMessageElementSelf(content) {
-  const newElement = document.createElement("div");
-  newElement.textContent = content;
-  newElement.classList.add("message-self");
+  const div = document.createElement("div");
+  const pre = document.createElement("pre");
+  const p = document.createElement("p");
 
-  return newElement;
+  div.classList.add("message-self");
+
+  div.appendChild(pre);
+  div.appendChild(p);
+
+  pre.innerHTML += content;
+  p.innerHTML = formatDate();
+
+  return div;
 }
 
 function createMessageElementOther(userName, userColor, content) {
   console.log({ userName, userColor, content });
   const div = document.createElement("div");
   const span = document.createElement("span");
+  const pre = document.createElement("pre");
+  const p = document.createElement("p");
 
   div.classList.add("message-self");
   div.classList.add("message-other");
   span.classList.add("message-other-sender");
 
   div.appendChild(span);
+  div.appendChild(pre);
+  div.appendChild(p);
 
   span.innerHTML = userName;
   span.style.color = userColor;
 
-  div.innerHTML += content;
+  pre.innerHTML += content;
+  p.innerHTML = formatDate();
 
   return div;
 }
 
-window.addEventListener("beforeunload", () => {
-  if (websocket && websocket.readyState === WebSocket.OPEN) {
-    websocket.close();
-  }
-});
+function connectWebSocket() {
+  websocket = new WebSocket("wss://ephemeral-service.vercel.app");
+
+  websocket.onopen = (event) => {
+    console.log("[WebSocket] Conexão estabelecida com o servidor.");
+  };
+
+  websocket.onmessage = processMessageClient;
+
+  websocket.onclose = (event) => {
+    console.warn("[WebSocket] Conexão fechada. Reconectando...");
+
+    setTimeout(connectWebSocket, 2000);
+  };
+
+  websocket.onerror = (error) => {
+    console.error("[WebSocket] Erro: ", { error });
+  };
+}
+
+function formatDate() {
+  const date = new Date();
+
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  return `${hours}:${minutes}`;
+}

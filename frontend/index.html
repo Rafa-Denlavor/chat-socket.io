@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="./css/chat.css" />
   </head>
   <body>
-    <span class="coockie-banner">Atenção: As conversas desaparecem após o fechamento desta aba.</span>
+    <span class="coockie-banner"
+      >Atenção: As conversas desaparecem após o fechamento desta aba.</span
+    >
     <main class="container">
       <section class="login">
         <h2>Login</h2>
@@ -29,16 +31,15 @@
         </form>
       </section>
       <section class="chat">
-        <section class="chat-messages">
-        </section>
+        <section class="chat-messages"></section>
         <form class="chat-form">
-          <input
-            id="chat"
-            type="text"
+          <textarea
+            rows="1"
             class="chat-input"
             placeholder="Digite uma mensagem..."
             required
-          />
+            onfocus></textarea>
+          ></textarea>
           <button type="submit" class="chat-button">
             <span class="material-symbols-outlined"> send </span>
           </button>
@@ -46,5 +47,6 @@
       </section>
     </main>
     <script src="./js/script.js"></script>
+    <script src="./js/actions.js"></script>
   </body>
 </html>
