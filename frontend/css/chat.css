@@ -14,15 +14,21 @@
   justify-content: flex-end;
 }
 
-.chat-messages > div {
+.chat-messages > div,
+.chat-messages > pre {
   padding: 10px;
-  width: 100%;
   max-width: 250px;
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 15px;
   line-height: 22px;
-  word-break: break-all;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.chat-messages div pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .message-self {
@@ -37,6 +43,13 @@
   background-color: #333;
   color: #f2f2f2;
   border-radius: 0 10px 10px 10px;
+}
+
+.message-other > p, .message-self > p {
+  text-align: end;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: gray;
 }
 
 .message-other-sender {
@@ -66,6 +79,10 @@
   outline: none;
   color: #f2f2f2;
   font-size: 1rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  resize: none;
+  height: 50px !important;
 }
 
 .chat-button {

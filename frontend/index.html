@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TempChat - O seu bate-papo temporário</title>
+    <title>Ephemeral - O bate-papo mundial</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="./css/chat.css" />
   </head>
   <body>
+    <span class="coockie-banner"
+      >Atenção: As conversas desaparecem após o fechamento desta aba.</span
+    >
     <main class="container">
       <section class="login">
         <h2>Login</h2>
@@ -28,23 +31,15 @@
         </form>
       </section>
       <section class="chat">
-        <section class="chat-messages">
-          <!-- <div class="message-self">Hello, Word!</div>
-            <div class="message-self">Hello, Word!</div>
-            <div class="message-self">Hello, Word!</div>
-            <div class="message-other">
-                <span class="message-other-sender">Manuela</span>
-                <p>Olá, pessoal. Tudo bem?</p>
-            </div> -->
-        </section>
+        <section class="chat-messages"></section>
         <form class="chat-form">
-          <input
-            id="chat"
-            type="text"
+          <textarea
+            rows="1"
             class="chat-input"
             placeholder="Digite uma mensagem..."
             required
-          />
+            onfocus></textarea>
+          ></textarea>
           <button type="submit" class="chat-button">
             <span class="material-symbols-outlined"> send </span>
           </button>
@@ -52,5 +47,6 @@
       </section>
     </main>
     <script src="./js/script.js"></script>
+    <script src="./js/actions.js"></script>
   </body>
 </html>
