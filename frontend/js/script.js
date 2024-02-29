@@ -1,5 +1,7 @@
 // --------------- ELEMENTS --------------- //
 
+const banner = document.querySelector('.coockie-banner');
+
 const login = document.querySelector(".login");
 const loginForm = document.querySelector(".login-form");
 const loginInput = document.getElementById("name");
@@ -40,12 +42,34 @@ loginForm.addEventListener("submit", (event) => {
   user.color = getRandomColor();
 
   login.style.display = "none";
-  chat.style.display = "flex";
 
-   // Open connection?
+  setTimeout(() => {
+    const image = document.createElement('img');
+    image.src = '../images/loading.gif';
+    image.styles.margin = 'auto';
+    image.style.padding = '10px';
+    image.backgroundColor = 'red'
+    // Adicione a imagem de carregamento ao DOM
+    document.body.appendChild(image);
+
+    // Agora, depois de 5.5 segundos, execute o seguinte código
+    setTimeout(() => {
+      // Remova a imagem de carregamento depois de 5.5 segundos
+      document.body.removeChild(image);
+      
+      // Exiba o chat e o banner após a remoção da imagem de carregamento
+      chat.style.display = "flex";
+      banner.style.display = "flex";
+    }, 2500);
+  }, 0);
+
+  // Open connection?
   if (!websocket || websocket.readyState === WebSocket.CLOSED) {
-    websocket = new WebSocket("wss://ephemeral-service.vercel.app");
+    websocket = new WebSocket("ws://localhost:7070");
+    console.log("[WebSocket] Connection started", websocket)
     websocket.onmessage = processMessageClient;
+  } else {
+    console.log("[WebSocket] Connection is already open.");
   }
 });
 
@@ -116,3 +140,9 @@ function createMessageElementOther(userName, userColor, content) {
 
   return div;
 }
+
+window.addEventListener("beforeunload", () => {
+  if (websocket && websocket.readyState === WebSocket.OPEN) {
+    websocket.close();
+  }
+});
