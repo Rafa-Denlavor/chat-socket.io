@@ -42,8 +42,11 @@ loginForm.addEventListener("submit", (event) => {
   login.style.display = "none";
   chat.style.display = "flex";
 
-  websocket = new WebSocket("wss://ephemeral-service.vercel.app");
-  websocket.onmessage = processMessageClient;
+   // Open connection?
+  if (!websocket || websocket.readyState === WebSocket.CLOSED) {
+    websocket = new WebSocket("wss://ephemeral-service.vercel.app");
+    websocket.onmessage = processMessageClient;
+  }
 });
 
 chatForm.addEventListener("submit", (event) => {
