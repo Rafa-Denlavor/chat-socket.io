@@ -42,7 +42,7 @@ loginForm.addEventListener("submit", (event) => {
   login.style.display = "none";
   chat.style.display = "flex";
 
-  websocket = new WebSocket("ws:localhost:7070");
+  websocket = new WebSocket("wss://ephemeral-service.vercel.app");
   websocket.onmessage = processMessageClient;
 });
 
