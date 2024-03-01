@@ -1,10 +1,12 @@
 const dotenv = require("dotenv");
+const express = require("express");
 const { WebSocketServer } = require("ws");
 
 dotenv.config();
+const app = express();
 
 const wss = new WebSocketServer({ port: process.env.PORT || 8080 });
-console.log('Connecting...')
+console.log("Server is running...");
 
 // Connection
 wss.on("connection", (ws) => {
@@ -20,4 +22,10 @@ wss.on("connection", (ws) => {
       return client.send(data.toString());
     });
   });
+});
+
+app.get("/", (req, res) => {
+  res.send(
+    "[Ephemeral - WebSocket] Acesse o projeto em: https://ephemeral-web.vercel.app/"
+  );
 });
