@@ -23,15 +23,6 @@ const user = {
   color: "",
 };
 
-const randomColors = [
-  "cadetblue",
-  "darkgoldenrod",
-  "cornflowerblue",
-  "darkkhaki",
-  "hotpink",
-  "gold",
-];
-
 // --------------- EVENTS --------------- //
 
 loginForm.addEventListener("submit", (event) => {
@@ -70,15 +61,6 @@ chatForm.addEventListener("submit", (event) => {
 
 // --------------- FUNCTIONS --------------- //
 
-function getRandomColor() {
-  const randomIndex = Math.floor(Math.random() * randomColors.length);
-  return randomColors[randomIndex];
-}
-
-function scrollScreenBottom() {
-  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-}
-
 function processMessageClient({ data }) {
   console.log("[WebSocket] Mensagem recebida do servidor.");
   const { userId, userName, userColor, content } = JSON.parse(data);
@@ -114,7 +96,7 @@ function createMessageElementSelf(content) {
   div.appendChild(p);
 
   pre.innerHTML += content;
-  p.innerHTML = formatDate();
+  p.innerHTML = getHoursAndMinutes();
 
   return div;
 }
@@ -138,7 +120,7 @@ function createMessageElementOther(userName, userColor, content) {
   span.style.color = userColor;
 
   pre.innerHTML += content;
-  p.innerHTML = formatDate();
+  p.innerHTML = getHoursAndMinutes();
 
   return div;
 }
@@ -161,13 +143,4 @@ function connectWebSocket() {
   websocket.onerror = (error) => {
     console.error("[WebSocket] Erro: ", { error });
   };
-}
-
-function formatDate() {
-  const date = new Date();
-
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-
-  return `${hours}:${minutes}`;
 }
