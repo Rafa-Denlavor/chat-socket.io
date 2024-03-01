@@ -12,6 +12,21 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
+}
+
+.chat-date {
+  position: absolute;
+  width: fit-content;
+  padding: 10px 20px;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: #212121;
+  border-radius: 30px;
 }
 
 .chat-messages > div,
@@ -45,7 +60,8 @@
   border-radius: 0 10px 10px 10px;
 }
 
-.message-other > p, .message-self > p {
+.message-other > p,
+.message-self > p {
   text-align: end;
   font-weight: 500;
   font-size: 0.85rem;

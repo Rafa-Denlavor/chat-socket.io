@@ -11,6 +11,13 @@
   font-size: 15px;
 }
 
+body {
+  background: url("../images/background.png");
+  background-size: 280px;
+  background-repeat: repeat;
+  color: #f2f2f2;
+}
+
 .container {
   width: 100%;
   height: calc(100dvh - 60px);
