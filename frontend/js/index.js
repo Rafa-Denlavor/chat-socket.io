@@ -126,8 +126,7 @@ function createMessageElementOther(userName, userColor, content) {
 }
 
 function connectWebSocket() {
-  websocket = new WebSocket("wss://ephemeral-service.vercel.app");
-
+  websocket = new WebSocket("wss://ephemeral-service.onrender.com");
   websocket.onopen = (event) => {
     console.log("[WebSocket] Conexão estabelecida com o servidor.");
   };
