@@ -11,13 +11,6 @@
   font-size: 15px;
 }
 
-body {
-  background: url("../images/background.png");
-  background-size: 280px;
-  background-repeat: repeat;
-  color: #f2f2f2;
-}
-
 .container {
   width: 100%;
   height: calc(100dvh - 60px);
@@ -32,4 +25,19 @@ body {
   justify-content: center;
   background-color: rgb(85, 85, 85);
   padding: 20px;
+}
+
+a {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition-duration: 0.7s;
+}
+
+a:hover {
+  background-color: white;
+  color: #212121
 }
