@@ -19,18 +19,29 @@
   justify-content: center;
 }
 
-.coockie-banner {
+.banner {
   width: 100%;
   position: fixed;
   top: 0;
   display: none;
+  align-items: center;
   justify-content: center;
   background-color: rgb(85, 85, 85);
   padding: 20px;
   z-index: 1;
 }
 
-a {
+.banner-actions {
+  position: absolute;
+  right: 0px;
+}
+
+.banner-link {
+  color: white;
+  padding-right: 20px;
+}
+
+.link {
   border: 1px solid white;
   border-radius: 5px;
   color: white;
@@ -40,7 +51,7 @@ a {
   transition-duration: 0.7s;
 }
 
-a:hover {
+.link:hover {
   background-color: white;
   color: #212121
 }

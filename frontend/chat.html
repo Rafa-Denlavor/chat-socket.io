@@ -43,13 +43,26 @@
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body class="body-login">
-    <span class="coockie-banner"
-      >Atenção: As conversas desaparecem após o fechamento desta aba.</span
-    >
+    <div class="banner">
+      Atenção: As conversas desaparecem após o fechamento desta aba.
+      <nav class="banner-actions">
+        <a
+          href="mailto:rafinhacrisdenlavor@gmail.com?subject=GhostGabble - Relatar problema&cc=copia@rafinhacrisdenlavor@gmail.com"
+          target="_blank"
+          class="banner-link"
+        >
+          <span class="material-symbols-outlined"> chat_error </span></a
+        >
+        <a href="./index.html" class="banner-link"
+          ><span class="material-symbols-outlined"> exit_to_app </span></a
+        >
+      </nav>
+    </div>
     <main class="container">
       <section class="login">
-        <h2>Login</h2>
+        <h2>Chat Global</h2>
         <form class="login-form">
+          <label for="name" class="">Nome</label>
           <input
             id="name"
             type="text"
@@ -58,9 +71,9 @@
             required
           />
           <label for="gender" class="">Gênero</label>
-          <select id="gender">
-            <option value="H">Homem</option>
+          <select id="gender" class="login-input">
             <option value="M">Mulher</option>
+            <option value="H">Homem</option>
             <option value="OTHER">Outro</option>
             <option value="N/A">Prefiro não dizer</option>
           </select>
@@ -85,6 +98,7 @@
         </form>
       </section>
     </main>
+    <script src="./js/utils/createMessages.js"></script>
     <script src="./js/utils/getDateCurrent.js"></script>
     <script src="./js/utils/getHoursAndMinutes.js"></script>
     <script src="./js/utils/getRandomColor.js"></script>

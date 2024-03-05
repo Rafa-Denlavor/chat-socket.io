@@ -1,6 +1,6 @@
 // --------------- ELEMENTS --------------- //
 
-const banner = document.querySelector(".coockie-banner");
+const banner = document.querySelector(".banner");
 const container = document.querySelector(".container");
 
 const login = document.querySelector(".login");
@@ -39,8 +39,6 @@ loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const formatName = inputName.value.trim();
-
-  console.log(inputGender.value);
 
   user.name = formatName;
   user.id = crypto.randomUUID();
@@ -97,7 +95,7 @@ function sendMessageSocket() {
   };
 
   if (websocket.readyState === 0) {
-    alert("Conectando... espere por alguns instantes.");
+    alert("Conectando... espere por alguns instantes. Tempo de espera máximo: 20 segundos.");
   }
 
   if (websocket.readyState === 1) {
@@ -105,52 +103,9 @@ function sendMessageSocket() {
   }
 }
 
-function createMessageElementSelf(content) {
-  const div = document.createElement("div");
-  const pre = document.createElement("pre");
-  const p = document.createElement("p");
-
-  div.classList.add("message-self");
-
-  div.appendChild(pre);
-  div.appendChild(p);
-
-  pre.innerHTML += content;
-  p.innerHTML = getHoursAndMinutes();
-
-  return div;
-}
-
-function createMessageElementOther(userName, userColor, userGender, content) {
-  console.log({ userName, userColor, content });
-  const div = document.createElement("div");
-  const span = document.createElement("span");
-  const spanIcon = document.createElement("span");
-  const pre = document.createElement("pre");
-  const p = document.createElement("p");
-
-  div.classList.add("message-self");
-  div.classList.add("message-other");
-  span.classList.add("message-other-sender");
-
-  div.appendChild(span);
-  div.appendChild(spanIcon);
-  div.appendChild(pre);
-  div.appendChild(p);
-
-  span.innerHTML = userName;
-  span.style.color = userColor;
-  spanIcon.classList.add("material-symbols-outlined");
-  spanIcon.innerHTML = genderOptions[userGender];
-
-  pre.innerHTML += content;
-  p.innerHTML = getHoursAndMinutes();
-
-  return div;
-}
-
 function connectWebSocket() {
-  websocket = new WebSocket("wss://ephemeral-service.onrender.com");
+  // websocket = new WebSocket("wss://ephemeral-service.onrender.com");
+  websocket = new WebSocket("ws://localhost:7070");
 
   websocket.onopen = (event) => {
     console.log("[WebSocket] Conexão estabelecida com o servidor.");
