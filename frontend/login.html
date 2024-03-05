@@ -3,26 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Converse com pessoal do mundo todo para compartilhar experiências, histórias e conhecimentos."/>
+    <meta
+      name="description"
+      content="Converse com pessoal do mundo todo para compartilhar experiências, histórias e conhecimentos."
+    />
     <title>GhostGabble - Conversas sem rosto em tempo real</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/icon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/icon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/icon/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/icon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/icon/favicon-16x16.png"
+    />
     <link rel="manifest" href="./images/icon/site.webmanifest" />
     <link rel="stylesheet" href="./css/global.css" />
     <link rel="stylesheet" href="./css/login.css" />
     <link rel="stylesheet" href="./css/chat.css" />
     <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body class="body-login">
-    <span class="coockie-banner">Atenção: As conversas desaparecem após o fechamento desta aba.</span
+    <span class="coockie-banner"
+      >Atenção: As conversas desaparecem após o fechamento desta aba.</span
     >
     <main class="container">
       <section class="login">
@@ -35,6 +57,13 @@
             class="login-input"
             required
           />
+          <label for="gender" class="">Gênero</label>
+          <select id="gender">
+            <option value="H">Homem</option>
+            <option value="M">Mulher</option>
+            <option value="OTHER">Outro</option>
+            <option value="N/A">Prefiro não dizer</option>
+          </select>
           <button type="submit" class="login-button">Entrar</button>
         </form>
       </section>

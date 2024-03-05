@@ -13,11 +13,17 @@
   padding: 20px;
 }
 
+.login-logo {
+  width: 70px;
+ margin: auto;
+ display: block;
+}
+
 .login > h2 {
   text-align: center;
   font-weight: 600;
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .login-form {
