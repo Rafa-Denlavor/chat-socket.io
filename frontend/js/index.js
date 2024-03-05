@@ -1,12 +1,11 @@
 // --------------- ELEMENTS --------------- //
 
-const banner = document.querySelector(".banner");
+const banner = document.querySelector(".coockie-banner");
 const container = document.querySelector(".container");
 
 const login = document.querySelector(".login");
 const loginForm = document.querySelector(".login-form");
-const inputName = document.getElementById("name");
-const inputGender = document.getElementById("gender");
+const loginInput = document.getElementById("name");
 
 const chat = document.querySelector(".chat");
 const chatForm = document.querySelector(".chat-form");
@@ -22,15 +21,6 @@ const user = {
   id: "",
   name: "",
   color: "",
-  gender: "",
-};
-
-const genderOptions = {
-  M: "female",
-  H: "male",
-  T: "transgender",
-  OTHER: "psychology_alt",
-  "N/A": "psychology_alt",
 };
 
 // --------------- EVENTS --------------- //
@@ -38,12 +28,11 @@ const genderOptions = {
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const formatName = inputName.value.trim();
+  const formatName = loginInput.value.trim();
 
   user.name = formatName;
   user.id = crypto.randomUUID();
   user.color = getRandomColor();
-  user.gender = inputGender.value;
 
   login.style.display = "none";
 
@@ -58,7 +47,7 @@ loginForm.addEventListener("submit", (event) => {
 
       chat.style.display = "flex";
       banner.style.display = "flex";
-    }, 1700);
+    }, 2000);
   }, 0);
 
   connectWebSocket();
@@ -74,12 +63,12 @@ chatForm.addEventListener("submit", (event) => {
 
 function processMessageClient({ data }) {
   console.log("[WebSocket] Mensagem recebida do servidor.");
-  const { userId, userName, userColor, userGender, content } = JSON.parse(data);
+  const { userId, userName, userColor, content } = JSON.parse(data);
 
   const messageType =
     userId === user.id
       ? createMessageElementSelf(content)
-      : createMessageElementOther(userName, userColor, userGender, content);
+      : createMessageElementOther(userName, userColor, content);
 
   chatMessages.appendChild(messageType);
   scrollScreenBottom();
@@ -90,23 +79,54 @@ function sendMessageSocket() {
     userId: user.id,
     userName: user.name,
     userColor: user.color,
-    userGender: user.gender,
     content: chatInput.value,
   };
 
-  if (websocket.readyState === 0) {
-    alert("Conectando... espere por alguns instantes. Tempo de espera máximo: 20 segundos.");
-  }
+  websocket.send(JSON.stringify(message));
+}
 
-  if (websocket.readyState === 1) {
-    websocket.send(JSON.stringify(message));
-  }
+function createMessageElementSelf(content) {
+  const div = document.createElement("div");
+  const pre = document.createElement("pre");
+  const p = document.createElement("p");
+
+  div.classList.add("message-self");
+
+  div.appendChild(pre);
+  div.appendChild(p);
+
+  pre.innerHTML += content;
+  p.innerHTML = getHoursAndMinutes();
+
+  return div;
+}
+
+function createMessageElementOther(userName, userColor, content) {
+  console.log({ userName, userColor, content });
+  const div = document.createElement("div");
+  const span = document.createElement("span");
+  const pre = document.createElement("pre");
+  const p = document.createElement("p");
+
+  div.classList.add("message-self");
+  div.classList.add("message-other");
+  span.classList.add("message-other-sender");
+
+  div.appendChild(span);
+  div.appendChild(pre);
+  div.appendChild(p);
+
+  span.innerHTML = userName;
+  span.style.color = userColor;
+
+  pre.innerHTML += content;
+  p.innerHTML = getHoursAndMinutes();
+
+  return div;
 }
 
 function connectWebSocket() {
   websocket = new WebSocket("wss://ephemeral-service.onrender.com");
-  // websocket = new WebSocket("ws://localhost:7070");
-
   websocket.onopen = (event) => {
     console.log("[WebSocket] Conexão estabelecida com o servidor.");
   };
