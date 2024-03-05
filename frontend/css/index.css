@@ -1,0 +1,89 @@
+.body-index {
+  background-image: linear-gradient(
+    to right top,
+    #121212,
+    #222222,
+    #323232,
+    #434343,
+    #555555
+  );
+  color: #f2f2f2;
+  min-height: 100dvh;
+  height: max-content;
+}
+
+.header {
+  padding: 20px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header > img {
+  width: 70px;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 65vh;
+}
+
+.home-title {
+  text-align: center;
+  font-size: 4rem;
+  margin: 4rem 0;
+}
+
+.home > a {
+  margin-top: 40px;
+}
+
+.home > a:before {
+  content: "-> ";
+}
+
+.card-wrapper {
+  display: flex;
+  gap: 50px;
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 30%;
+  min-width: 300px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  border-radius: 5px;
+  padding: 20px;
+  border: none;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.card-title::after {
+  margin-left: 10px;
+  content: "✔";
+}
+
+.home-button {
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1200px) {
+  .home-title {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+}

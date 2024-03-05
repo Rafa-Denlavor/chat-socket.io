@@ -11,13 +11,6 @@
   font-size: 15px;
 }
 
-body {
-  background: url("../images/background.png");
-  background-size: 280px;
-  background-repeat: repeat;
-  color: #f2f2f2;
-}
-
 .container {
   width: 100%;
   height: calc(100dvh - 60px);
@@ -26,10 +19,39 @@ body {
   justify-content: center;
 }
 
-.coockie-banner {
+.banner {
+  width: 100%;
+  position: fixed;
+  top: 0;
   display: none;
-  flex-grow: 1;
+  align-items: center;
   justify-content: center;
   background-color: rgb(85, 85, 85);
   padding: 20px;
+  z-index: 1;
+}
+
+.banner-actions {
+  position: absolute;
+  right: 0px;
+}
+
+.banner-link {
+  color: white;
+  padding-right: 20px;
+}
+
+.link {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition-duration: 0.7s;
+}
+
+.link:hover {
+  background-color: white;
+  color: #212121
 }
