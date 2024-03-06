@@ -21,39 +21,62 @@
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
-  <body>
-    <span class="coockie-banner">Atenção: As conversas desaparecem após o fechamento desta aba.</span
-    >
-    <main class="container">
-      <section class="login">
-        <h2>Login</h2>
-        <form class="login-form">
-          <input
-            id="name"
-            type="text"
-            placeholder="Como gostaria de ser chamado?"
-            class="login-input"
-            required
-          />
-          <button type="submit" class="login-button">Entrar</button>
-        </form>
-      </section>
-      <section class="chat">
-        <section class="chat-messages">
-          <span class="chat-date"></span>
-        </section>
-        <form class="chat-form">
-          <textarea
-            rows="1"
-            class="chat-input"
-            placeholder="Digite uma mensagem..."
-            required
-            onfocus
-          ></textarea>
-          <button type="submit" class="chat-button">
-            <span class="material-symbols-outlined"> send </span>
-          </button>
-        </form>
+  <body class="body-index">
+    <main>
+      <header class="header">
+        <img src="./images/logo.png" alt="Logo do GhostGabble" />
+        <a
+          href="mailto:rafinhacrisdenlavor@gmail.com?subject=GhostGabble - Relatar problema&cc=copia@rafinhacrisdenlavor@gmail.com"
+          class="link"
+          >Relatar problema</a
+        >
+      </header>
+      <section class="home">
+        <h1 class="home-title">Instantânio. Anônimo. Temporário</h1>
+        <div class="card-wrapper">
+          <article class="card">
+            <h3 class="card-title">Chat Anônimo</h3>
+            <p class="card-description">
+              Os usuários podem participar de conversas sem revelar sua
+              identidade.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Privacidade</h3>
+            <p class="card-description">
+              O foco está na simplicidade do uso e na proteção da privacidade
+              dos usuários.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Simplicidade</h3>
+            <p class="card-description">
+              Não há necessidade de criar contas ou fornecer documentos.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Cache temporário</h3>
+            <p class="card-description">
+              <!-- As mensagens permanecem registradas por apenas 6 horas. -->
+              Ao sair ou fechar a guia, as conversas serão excluídas
+              automaticamente.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Acessibilidade</h3>
+            <p class="card-description">
+              Acessível em diferentes dispositivos e sistemas operacionais.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Conveniência</h3>
+            <p class="card-description">
+              Os usuários podem participar de conversas de qualquer lugar e a
+              qualquer momento.
+            </p>
+          </article>
+        </div>
+        <a href="./chat.html" class="home-button link">Inicie uma conversa</a>
       </section>
     </main>
     <script src="./js/utils/getDateCurrent.js"></script>

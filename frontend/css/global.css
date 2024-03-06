@@ -31,5 +31,31 @@ body {
   flex-grow: 1;
   justify-content: center;
   background-color: rgb(85, 85, 85);
-  padding: 20px;
+  padding: 30px;
+  z-index: 1;
+}
+
+.banner-actions {
+  position: absolute;
+  right: 0px;
+}
+
+.banner-link {
+  color: white;
+  padding-right: 20px;
+}
+
+.link {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition-duration: 0.7s;
+}
+
+.link:hover {
+  background-color: white;
+  color: #212121
 }

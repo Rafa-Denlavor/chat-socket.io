@@ -19,7 +19,7 @@
   position: absolute;
   width: fit-content;
   padding: 10px 20px;
-  top: 30px;
+  top: 120px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -86,7 +86,7 @@
   width: 100%;
 }
 
-.chat-input {
+.chat-textarea {
   border: none;
   padding: 15px;
   border-radius: 8px;
