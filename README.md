@@ -10,6 +10,7 @@ GhostGabble é um projeto de chat de curta duração para conversas públicas ou
 ## Como Usar
 
 1. **Registro/Login:** Os usuários precisam se registrar ou fazer login para acessar o GhostGabble.
+
 2. **Criar uma Conversa:** Os usuários podem criar uma nova conversa e convidar outros usuários para participar, ou iniciar uma conversa pública.
 3. **Troca de Mensagens:** Uma vez dentro de uma conversa, os usuários podem trocar mensagens entre si.
 4. **Tempo de Vida das Mensagens:** Todas as mensagens têm um tempo de vida definido pelo criador da conversa. Após esse tempo, as mensagens são removidas automaticamente.
