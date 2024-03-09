@@ -105,8 +105,8 @@ function sendMessageSocket() {
 }
 
 function connectWebSocket() {
-  // websocket = new WebSocket("wss://ephemeral-service.onrender.com");
-  websocket = new WebSocket("ws://localhost:7070");
+  websocket = new WebSocket("wss://ephemeral-service.onrender.com");
+  // websocket = new WebSocket("ws://localhost:7070");
 
   websocket.onopen = (event) => {
     console.log("[WebSocket] Conexão estabelecida com o servidor.");
