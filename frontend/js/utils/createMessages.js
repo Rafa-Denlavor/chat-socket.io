@@ -41,4 +41,3 @@ function createMessageElementOther(userName, userColor, userGender, content) {
 
   return div;
 }
-
