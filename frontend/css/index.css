@@ -19,17 +19,13 @@
   justify-content: space-between;
 }
 
-.header > img {
-  width: 70px;
-}
-
 .home {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  min-height: 65vh;
+  min-height: 70vh;
 }
 
 .home-title {
@@ -45,6 +41,16 @@
 .home > a:before {
   content: "-> ";
 }
+
+.animation {
+  width: 100%;
+  height: 60px;
+}
+
+.mascot {
+  width: 70px;
+  position: absolute;
+  animation: ghost-movement 10s ease infinite;}
 
 .card-wrapper {
   display: flex;
@@ -85,5 +91,85 @@
   .home-title {
     font-size: 3rem;
     margin-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 20px;
+  }
+}
+
+@keyframes ghost-movement {
+  0% {
+    opacity: 1;
+    top: 60px;
+    opacity: 0;
+    left: 100px;
+  }
+
+  10% {
+    opacity: 1;
+    top: 20px;
+    opacity: 0;
+    right: 200px;
+  }
+
+  20% {
+    opacity: 1;
+    bottom: 300px;
+    opacity: 0;
+    right: 600px;
+  }
+
+  30% {
+    opacity: 0;
+    transform: translateY(100px) translateX(100px);
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+    bottom: 100px;
+    opacity: 0;
+    left: 400px;
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateY(100px) translateX(500px);
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+    top: 50%;
+    opacity: 0;
+    right: 100px;
+  }
+
+  70% {
+    opacity: 1;
+    bottom: 20px;
+    opacity: 0;
+    right: 0;
+    transform: translateX(-300px);
+  }
+
+  80% {
+    opacity: 1;
+    bottom: 10px;
+    transform: translateX(-100px);
+    animation-duration: 4s;
+    opacity: 0;
+  }
+
+  100% {
+    animation-duration: 5s;
+    opacity: 1;
+    top: 30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
 }

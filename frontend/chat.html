@@ -43,21 +43,24 @@
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body class="body-login">
-    <nav class="banner">
-      <a
-        href="mailto:rafinhacrisdenlavor@gmail.com?subject=GhostGabble - Relatar problema&cc=copia@rafinhacrisdenlavor@gmail.com"
-        target="_blank"
-        class="banner-link"
-      >
-        <span class="material-symbols-outlined"> chat_error </span></a
-      >
-      <a href="./index" class="banner-link"
-        ><span class="material-symbols-outlined"> exit_to_app </span></a
-      >
-    </nav>
+    <div class="banner">
+      <h2 class="title">GhostGabble</h2>
+      <nav>
+        <a
+          href="mailto:rafinhacrisdenlavor@gmail.com?subject=GhostGabble - Relatar problema&cc=copia@rafinhacrisdenlavor@gmail.com"
+          target="_blank"
+          class="banner-link"
+        >
+          <span class="material-symbols-outlined"> chat_error </span></a
+        >
+        <a href="./index" class="banner-link"
+          ><span class="material-symbols-outlined"> exit_to_app </span></a
+        >
+      </nav>
+    </div>
     <main class="container">
       <section class="login">
-        <h2>Chat Global</h2>
+        <h2>Conecte-se</h2>
         <form class="login-form">
           <label for="name" class="">Nome</label>
           <input
@@ -96,11 +99,14 @@
         </form>
       </section>
     </main>
+    <script src="./js/utils/constants.js"></script>
+    <script src="./js/utils/connectWebSocket.js"></script>
     <script src="./js/utils/createMessages.js"></script>
     <script src="./js/utils/getDateCurrent.js"></script>
     <script src="./js/utils/getHoursAndMinutes.js"></script>
     <script src="./js/utils/getRandomColor.js"></script>
     <script src="./js/utils/scrollScreenBottom.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/utils/actionsWebSocket.js"></script>
   </body>
 </html>

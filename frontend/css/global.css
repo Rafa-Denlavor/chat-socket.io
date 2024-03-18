@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 * {
   margin: 0;
@@ -26,23 +27,27 @@ body {
   justify-content: center;
 }
 
-.coockie-banner {
+.banner {
   display: none;
   flex-grow: 1;
-  justify-content: center;
+  justify-content: space-between;
   background-color: rgb(85, 85, 85);
-  padding: 30px;
+  padding: 20px;
   z-index: 1;
 }
 
-.banner-actions {
-  position: absolute;
-  right: 0px;
+.banner h2 {
+  font-family: "Righteous", sans-serif;
 }
 
 .banner-link {
   color: white;
   padding-right: 20px;
+}
+
+.title {
+  font-family: "Righteous", sans-serif;
+  text-shadow: 1px 3px 3px black;
 }
 
 .link {
@@ -57,5 +62,5 @@ body {
 
 .link:hover {
   background-color: white;
-  color: #212121
+  color: #212121;
 }
