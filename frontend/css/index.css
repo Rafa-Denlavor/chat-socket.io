@@ -25,7 +25,7 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  min-height: 75vh;
+  min-height: 70vh;
 }
 
 .home-title {
@@ -50,9 +50,7 @@
 .mascot {
   width: 70px;
   position: absolute;
-  animation: ghost-movement 15s ease infinite;
-  animation-delay: 5s;
-}
+  animation: ghost-movement 10s ease infinite;}
 
 .card-wrapper {
   display: flex;
